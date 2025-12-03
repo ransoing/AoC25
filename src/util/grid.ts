@@ -1,8 +1,8 @@
 import { unzip } from 'lodash';
 
 /** parses a text input as a grid, with elements accessible at grid[y][x] and the origin in the top-left. */
-function parseAsYxGrid( input: string ) {
-    return input.split( '\n' ).map( line => line.split('') );
+export function parseAsYxGrid( input: string, elementModifier: (element: string) => any = e => e ) {
+    return input.split( '\n' ).map( line => line.split('').map(elementModifier) );
 }
 
 /**
