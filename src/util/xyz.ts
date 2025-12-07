@@ -346,6 +346,8 @@ export class XYZ {
         const element2d = arr[this.x]?.[this.y];
         return Array.isArray( element2d ) ? element2d?.[this.z] : element2d;
     }
+    /** alias of `valueIn` */
+    valueInGrid = this.valueIn;
 
     /** given a 2D or 3D array, sets the value at [x][y][z] in that array */
     setValueIn<T>( arr: T[][], newValue: T ): void;
@@ -353,6 +355,8 @@ export class XYZ {
     setValueIn<T>( arr: (T | T[])[][], newValue: T ): void {
         Array.isArray( arr[this.x][this.y] ) ? arr[this.x][this.y][this.z] = newValue : arr[this.x][this.y] = newValue;
     }
+    /** alias of `setValueIn` */
+    setValueInGrid = this.setValueIn;
 
     toString(): string {
         return `${this.x},${this.y},${this.z}`;

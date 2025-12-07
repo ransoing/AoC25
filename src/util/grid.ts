@@ -27,12 +27,18 @@ export function rotateGridCounterclockwise<T>( grid: T[][] ) {
     return unzip( grid ).reverse();
 }
 
-/** mirrors the x-values of a grid (flips it across a line at y=n). Returns a new object. */
+/**
+ * Given a YX grid, mirrors the x-values of a grid (flips it across a line at y=n). Returns a new object.
+ * * If using an XY grid, this instead mirrors the y-values.
+ */
 export function mirrorGridX<T>( grid: T[][] ) {
     return grid.slice().reverse();
 }
 
-/** mirrors the y-values of a grid (flips it across a line at x=n). Returns a new object. */
+/**
+ * Given a YX grid, mirrors the y-values of a grid (flips it across a line at x=n). Returns a new object.
+ * If using an XY grid, this instead mirrors the x-values.
+ */
 export function mirrorGridY<T>( grid: T[][] ) {
     return grid.map( row => row.slice().reverse() );
 }
@@ -50,6 +56,15 @@ export function displayGrid<T>( grid: T[][] ) {
     rotateGridCounterclockwise( grid ).forEach( row => {
         console.log( row.join('') );
     });
+}
+
+/** Given a `j` value, returns an array representing [ foo[0][j], foo[1][j], ... ] */
+export function getJValues( grid: any[][], j: number ) {
+    const column: any[] = [];
+    for ( let i = 0; i < grid.length; i++ ) {
+        column.push( grid[i][j] );
+    }
+    return column;
 }
 
 /** runs a callback function for each element in a 2D grid */
