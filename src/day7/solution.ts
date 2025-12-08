@@ -32,7 +32,7 @@ function solve( input: string, ignoreVisitedSplitters = true ) {
             })
         );
     }, xyz => xyz.toString() );
-    return numPaths( firstSplitter ) + ( ignoreVisitedSplitters ? 0 : 1 );
+    return numPaths( firstSplitter );
 }
 
 outputAnswers({
@@ -43,7 +43,7 @@ outputAnswers({
         fullInputPath: `${__dirname}/full-input`
     },
     part2: {
-        solver: ( input: string ) => solve( input, false ),
+        solver: ( input: string ) => solve( input, false ) + 1,
         exptectedExampleSolution: 40,
         exampleInputPath: `${__dirname}/example-input`,
         fullInputPath: `${__dirname}/full-input`
