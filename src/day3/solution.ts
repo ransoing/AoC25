@@ -24,13 +24,13 @@ function solve( input: string, digits: number ) {
 outputAnswers({
     part1: {
         solver: ( input: string ) => solve( input, 2 ),
-        exptectedExampleSolution: 357,
+        expectedExampleSolution: 357,
         exampleInputPath: `${__dirname}/example-input`,
         fullInputPath: `${__dirname}/full-input`
     },
     part2: {
         solver: ( input: string ) => solve( input, 12 ),
-        exptectedExampleSolution: 3121910778619,
+        expectedExampleSolution: 3121910778619,
         exampleInputPath: `${__dirname}/example-input`,
         fullInputPath: `${__dirname}/full-input`
     }

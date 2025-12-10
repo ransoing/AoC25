@@ -38,13 +38,13 @@ function solve2( input: string ) {
 outputAnswers({
     part1: {
         solver: ( input: string ) => findRemovableRolls( parseAsXyGrid(input) ).length,
-        exptectedExampleSolution: 13,
+        expectedExampleSolution: 13,
         exampleInputPath: `${__dirname}/example-input`,
         fullInputPath: `${__dirname}/full-input`
     },
     part2: {
         solver: ( input: string ) => solve2( input ),
-        exptectedExampleSolution: 43,
+        expectedExampleSolution: 43,
         exampleInputPath: `${__dirname}/example-input`,
         fullInputPath: `${__dirname}/full-input`
     }

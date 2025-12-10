@@ -38,13 +38,13 @@ function solve( input: string, ignoreVisitedSplitters = true ) {
 outputAnswers({
     part1: {
         solver: ( input: string ) => solve( input ),
-        exptectedExampleSolution: 21,
+        expectedExampleSolution: 21,
         exampleInputPath: `${__dirname}/example-input`,
         fullInputPath: `${__dirname}/full-input`
     },
     part2: {
         solver: ( input: string ) => solve( input, false ) + 1,
-        exptectedExampleSolution: 40,
+        expectedExampleSolution: 40,
         exampleInputPath: `${__dirname}/example-input`,
         fullInputPath: `${__dirname}/full-input`
     }

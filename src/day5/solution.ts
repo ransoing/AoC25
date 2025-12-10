@@ -31,13 +31,13 @@ function parseInput( input: string ): { freshRanges: Range[], idsBlock: string[]
 outputAnswers({
     part1: {
         solver: ( input: string ) => solve( input ),
-        exptectedExampleSolution: 3,
+        expectedExampleSolution: 3,
         exampleInputPath: `${__dirname}/example-input`,
         fullInputPath: `${__dirname}/full-input`
     },
     part2: {
         solver: ( input: string ) => solve2( input ),
-        exptectedExampleSolution: 14,
+        expectedExampleSolution: 14,
         exampleInputPath: `${__dirname}/example-input`,
         fullInputPath: `${__dirname}/full-input`
     }

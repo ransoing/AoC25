@@ -22,13 +22,13 @@ function solve( input: string ) {
 outputAnswers({
     part1: {
         solver: ( input: string ) => solve( input ),
-        exptectedExampleSolution: null, // define this
+        expectedExampleSolution: null, // define this
         exampleInputPath: `${__dirname}/example-input`,
         fullInputPath: `${__dirname}/full-input`
     },
     part2: {
         solver: ( input: string ) => null, // define this
-        exptectedExampleSolution: null, // define this. Use NO_EXPECTED_EXAMPLE_SOLUTION if there is no example solution provided
+        expectedExampleSolution: null, // define this. Use NO_EXPECTED_EXAMPLE_SOLUTION if there is no example solution provided
         exampleInputPath: `${__dirname}/example-input`,
         fullInputPath: `${__dirname}/full-input`
     }

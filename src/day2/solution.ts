@@ -57,13 +57,13 @@ function invalidIdsInRange( [min, max]: [number, number], maxFragments = 2 ): nu
 outputAnswers({
     part1: {
         solver: ( input: string ) => solve( input ),
-        exptectedExampleSolution: 1227775554,
+        expectedExampleSolution: 1227775554,
         exampleInputPath: `${__dirname}/example-input`,
         fullInputPath: `${__dirname}/full-input`
     },
     part2: {
         solver: ( input: string ) => solve( input, null ),
-        exptectedExampleSolution: 4174379265,
+        expectedExampleSolution: 4174379265,
         exampleInputPath: `${__dirname}/example-input`,
         fullInputPath: `${__dirname}/full-input`
     }

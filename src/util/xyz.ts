@@ -174,6 +174,39 @@ export class XYZ {
         return new XYZ( str.split(',').map(c => parseInt(c)) );
     }
 
+    /** returns whether a point is inside a polygon, inclusive of all points and edges. MIGHT BE BROKEN. */
+    static pointIsInPolygon( point: Coordinate, polygon: XYZ[] ): boolean {
+        const [ px, py ] = point instanceof XYZ ? [ point.x, point.y ] : point;
+        let isInside = false;
+        for (let i = 0, j = polygon.length - 1; i < polygon.length; j = i++) {
+            const xi = polygon[i].x, yi = polygon[i].y;
+            const xj = polygon[j].x, yj = polygon[j].y;
+
+            // If the point is exactly on a vertex, consider it inside
+            if (px === xi && py === yi) return true;
+
+            // Check if point lies on the edge between vertex j and i (inclusive)
+            // Compute cross product to test collinearity, then check bounding box
+            const dx = xj - xi;
+            const dy = yj - yi;
+            const cross = (py - yi) * dx - (px - xi) * dy;
+            if (Math.abs(cross) < 1e-9) {
+                const minX = Math.min(xi, xj);
+                const maxX = Math.max(xi, xj);
+                const minY = Math.min(yi, yj);
+                const maxY = Math.max(yi, yj);
+                if (px >= minX - 1e-9 && px <= maxX + 1e-9 && py >= minY - 1e-9 && py <= maxY + 1e-9) {
+                    return true;
+                }
+            }
+
+            const intersect = ((yi > py) !== (yj > py))
+                && (px < (xj - xi) * (py - yi) / (yj - yi) + xi);
+            if (intersect) isInside = !isInside;
+        }
+        return isInside;
+    }
+
     public x: number;
     public y: number;
     public z: number;

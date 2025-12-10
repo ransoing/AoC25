@@ -28,13 +28,13 @@ function solve2( input: string ) {
 outputAnswers({
     part1: {
         solver: ( input: string ) => solve( input ).zeroInstances,
-        exptectedExampleSolution: 3,
+        expectedExampleSolution: 3,
         exampleInputPath: `${__dirname}/example-input`,
         fullInputPath: `${__dirname}/full-input`
     },
     part2: {
         solver: ( input: string ) => solve2( input ),
-        exptectedExampleSolution: 6,
+        expectedExampleSolution: 6,
         exampleInputPath: `${__dirname}/example-input`,
         fullInputPath: `${__dirname}/full-input`
     }

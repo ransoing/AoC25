@@ -57,13 +57,13 @@ outputAnswers({
     part1: {
         // for the example, we only want the 10 closest pairs; for the full input, 1000
         solver: ( input: string ) => solve( input, input.startsWith('162,817,812') ? 10 : 1000 ),
-        exptectedExampleSolution: 40,
+        expectedExampleSolution: 40,
         exampleInputPath: `${__dirname}/example-input`,
         fullInputPath: `${__dirname}/full-input`
     },
     part2: {
         solver: ( input: string ) => solve( input, null ),
-        exptectedExampleSolution: 25272,
+        expectedExampleSolution: 25272,
         exampleInputPath: `${__dirname}/example-input`,
         fullInputPath: `${__dirname}/full-input`
     }

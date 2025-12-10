@@ -5,7 +5,7 @@ export const NO_EXPECTED_EXAMPLE_SOLUTION = 'no expected example solution provid
 
 interface partConfig {
     solver: (input: string) => any;
-    exptectedExampleSolution: any;
+    expectedExampleSolution: any;
     exampleInputPath: string;
     fullInputPath: string;
 }
@@ -15,19 +15,19 @@ export function outputAnswers( config: {part1: partConfig, part2?: partConfig} )
     [ config.part1, config.part2 ].forEach( (part, i) => {
         // if the part isn't defined, or if the expected solution is null, skip it
         if ( part ) {
-            if ( part.exptectedExampleSolution == null ) {
+            if ( part.expectedExampleSolution == null ) {
                 console.log( `Not running Part ${i + 1} - no expected example solution provided` );
                 return;
             }
 
-            if ( part.exptectedExampleSolution !== NO_EXPECTED_EXAMPLE_SOLUTION ) {
+            if ( part.expectedExampleSolution !== NO_EXPECTED_EXAMPLE_SOLUTION ) {
                 // solve using the example input
                 const exampleInput = readTextFile( part.exampleInputPath );
                 let solved = clockSolution( () => part.solver(exampleInput) );
                 console.log( `Part ${i + 1} (example input) \truntime: ${solved.displayedTime}    \tsolution:`, solved.solution );
                 // bail if the example solution is incorrect
-                if ( solved.solution !== part.exptectedExampleSolution ) {
-                    console.error('\x1b[41m%s\x1b[0m', ` Error in part ${i + 1} example - expected ${part.exptectedExampleSolution}, got ${solved.solution} ` );
+                if ( solved.solution !== part.expectedExampleSolution ) {
+                    console.error('\x1b[41m%s\x1b[0m', ` Error in part ${i + 1} example - expected ${part.expectedExampleSolution}, got ${solved.solution} ` );
                     exit();
                 }
             }
